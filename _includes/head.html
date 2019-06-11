@@ -1,0 +1,47 @@
+<head>
+        <!-- SEO -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:url" content="{{ site.url }}{{ page.url }}"/>
+        <meta property="og:site_name" content="{{ site.title }}"/>
+        <meta property="og:locale" content="tr_TR"/>
+        <meta property="og:title" content="{{ site.title }}"/>
+        <meta property="og:image" content="{% if page.title == 'Anasayfa' %}{{ site.url }}{{ site.image }}{% else %}{{ site.url }}{{ page.image }}{% endif %}"/>
+        <meta property="og:image:secure_url" content="{% if page.title == 'Anasayfa' %}{{ site.url }}{{ site.image }}{% else %}{{ site.url }}{{ page.image }}{% endif %}"/>
+        <meta name="description" content="{{% if page.title == 'Anasayfa' %}}{{ site.description }}{{% else %}}{{ page.summary | escape }}{{% endif %}}" />
+        <meta name="keywords" content="{{ page.tags | join: ', ' | escape }}"/>
+        <title>{% if page.title == "Anasayfa" %}{{ site.title }} | {{ site.description }}{% else %}{{ page.title }} | {{ site.title }}{% endif %}</title>
+        <link rel="canonical" href="{{ site.url }}{{ page.url }}"/>
+        <link rel="next" href="{{ site.url }}/page2"/>
+        <link rel="publisher" href="{{ site.googleplus_url }}"/>
+        <meta property="og:site_name" content="{{ site.sitename }}"/>
+        <meta property="og:description" content="{% if page.title == 'Anasayfa' %}{{ site.description }}{% else %}{{ page.summary | escape }}{% endif %}"/>
+        <meta name="twitter:card" content="summary"/>
+        <meta name="twitter:description" content="{% if page.title == 'Anasayfa' %}{{ site.description }}{% else %}{{ page.summary | escape }}{% endif %}"/>
+        <meta name="twitter:title" content="{% if page.title == 'Anasayfa' %}{{ site.title }}{% else %}{{ page.title }}{% endif %}"/>
+        <meta name="twitter:site" content="@{{ site.twitter_username }}"/>
+        <meta name="twitter:image" content="{% if page.title == 'Anasayfa' %}{{ site.url }}{{ site.image }}{% else %}{{ site.url }}{{ page.image }}{% endif %}"/>
+        {% for tag in page.tags %}<meta property="article:tag" content="{{ tag }}"/>
+        {% endfor %}
+        <meta property="article:section" content="{{ page.category }}"/>
+        <meta property="article:publisher" content="{{ site.facebook_url }}"/>
+        <meta property="article:author" content="{{ site.facebook_url }}"/>
+        <meta property="article:published_time" content="{{ page.date }}"/>
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condense|K2D|Righteous|Oswald|Montserrat|Anton" rel="stylesheet">
+        <!-- FlavIcon -->
+        <link rel="icon" href="../assets/img/favico.png" sizes="32x32"/>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+        <!-- Fontawesome CSS -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        <!-- Style CSS -->
+        <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+        <!-- some other meta -->
+        {% if page.url == "/404.html" %}
+        <meta http-equiv="refresh" content="5; url=/">
+        {% endif %}
+</head>
