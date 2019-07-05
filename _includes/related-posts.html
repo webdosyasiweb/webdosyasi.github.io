@@ -1,0 +1,38 @@
+<div class="related">
+  <span class="related-title">&#10057; {{ site.data.settings.related_posts }}</span>
+    {% assign maxRelated = 8 %}
+    {% assign minCommonTags = 1 %}
+    {% assign maxRelatedCounter = 0 %}
+  <section class="related-posts">
+    {% for post in site.posts %}
+    {% assign sameTagCount = 0 %}
+    {% assign commonTags = '' %}
+    {% for tag in post.tags %}
+    {% if post.url != page.url %}
+    {% if page.tags contains tag %}
+    {% assign sameTagCount = sameTagCount | plus: 1 %}
+    {% capture tagmarkup %} 
+    {% comment %}
+    buraya {{ tag }} ile tag ismi konulabilir 
+    {% endcomment %}
+    {% endcapture %}
+    {% assign commonTags = commonTags | append: tagmarkup %}
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+    {% if sameTagCount >= minCommonTags %}
+      <section class="relatedones">
+        <a href="{{ post.url }}"><img width="520" height="245" class="home-thumbnail" src="{{ post.image }}"></a>
+        <span class="title-date">
+            <span class="mypost-title"><a href="{{ post.url }}">
+            {{post.title }}</a></span>
+        </span>
+      </section>
+      {% assign maxRelatedCounter = maxRelatedCounter | plus: 1 %}
+      {% if maxRelatedCounter >= maxRelated %}
+      {% break %}
+      {% endif %}
+      {% endif %}
+      {% endfor %}
+  </section>
+</div>

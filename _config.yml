@@ -1,41 +1,65 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+# Site
+name: 'Web Dosyası'
+description: 'Web Siteleri Hakkında Arka Planda Kalan Bilgiler'
+logo: 'assets/images/logo.png'
+favicon: 'assets/images/favicon.png'
+baseurl: ''
+#disqus: 'demowebsite'
+email: 'webdosyasi@gmail.com'
+#mailchimp-list: 'https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b'
 
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-title: Web Dosyası
-email: webdosyasiweb@gmail.com
-description: Herkes için Web
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://webdosyasi.com" # the base hostname & protocol for your site, e.g. http://example.com
-permalink: :title
+include: ["_pages"]
+permalink: /:title/
 
-# Build settings
-markdown: kramdown
-plugins:
+# Plugins
+plugins: 
   - jekyll-feed
+  - jekyll-sitemap
   - jekyll-paginate
+  - jekyll-seo-tag
+  
+authors:
+    sal:
+      name:           Sal
+      site:           https://www.wowthemes.net
+      avatar:         /assets/images/avatar1.jpg
+      bio:            "Hi, I am Sal, the author of Mundana, the theme you're currently previewing. I hope you like it!"
+      email:          wowthemesnet@gmail.com
+      twitter:        https://twitter.com/wowthemesnet
 
-development: false
+    jane:
+      name:           Jane
+      site:           https://www.wowthemes.net
+      avatar:         /assets/images/avatar2.jpg
+      bio:            "Blogger, fashionista, love to explore new ideas and write on my morning coffee!"
+      email:          fakemail@gmail.com
+      twitter:        https://twitter.com/wowthemesnet
+ 
+# Defaults
+defaults:
 
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+  # all posts
+  - scope:
+      path: "_posts"
+    values:
+      layout: post
+      author: sal
+      avatar: /assets/images/avatar1.jpg
+      
+  # all pages
+  - scope:
+      path: "_pages"
+    values:
+      layout: page
+      
+# Syntax
+markdown: kramdown
+highlighter: rouge
+
+# Paginate
+paginate: 10
+
+
+
+# Exclude metadata and development time dependencies (like Grunt plugins)
+exclude: [README.markdown, package.json, grunt.js, Gruntfile.js, Gruntfile.coffee, node_modules]

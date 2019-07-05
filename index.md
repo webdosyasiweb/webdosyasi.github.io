@@ -1,4 +1,0 @@
----
-title: Anasayfa
-layout: homepage
----
